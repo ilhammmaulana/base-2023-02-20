@@ -32,7 +32,7 @@ CREATE TABLE `buku` (
   `judul` varchar(255) NOT NULL,
   `penerbit` varchar(255) NOT NULL,
   `tahun_terbit` varchar(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `buku`
@@ -54,7 +54,7 @@ CREATE TABLE `peminjaman` (
   `tgl_pinjam` date NOT NULL,
   `tgl_kembali` date NOT NULL,
   `status` enum('belum_selesai','sudah_selesai') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE `siswa` (
   `kelas` varchar(255) NOT NULL,
   `telepon` varchar(255) NOT NULL,
   `nisn` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
 
 --
 -- Indexes for dumped tables
