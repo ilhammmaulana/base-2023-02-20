@@ -34,13 +34,9 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
             </div>
         </nav>
-
-
         <div class="container">
             <h1 class="text-primary">Buku</h1>
             <a href="tambah_buku.php" class="btn btn-primary text-white">Tambah buku</a>
-
-
             <table class="table">
                 <thead>
                     <tr>
@@ -59,7 +55,7 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <?php echo $book['id'] ?>
                             </th>
                             <td>
-                                <?php echo $book['judul'] ?>
+                                <?php echo $book['judul']; ?>
                             </td>
                             <td>
                                 <?php echo $book['penerbit'] ?>
@@ -67,14 +63,14 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <td>
                                 <?php echo $book['tahun_terbit'] ?>
                             </td>
-                            <td>
-                                <a href="edit_buku.php" class="btn btn-info text-white">Edit</a>
+                            <td class="d-flex gap-2">
+                                <a href="edit_buku.php?id=<?php echo $book['id'] ?>"
+                                    class="btn btn-info text-white">Edit</a>
                                 <form action="proccess/hapus_buku.php" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $book['id'] ?>">
                                     <button type="submit" class="btn btn-danger text-white">Delete</button>
                                 </form>
                             </td>
-
                         </tr>
                     <?php } ?>
                 </tbody>
