@@ -1,8 +1,8 @@
 <?php
 include 'config.php';
-$sql = "SELECT * FROM `buku`";
+$sql = "SELECT * FROM `siswa`";
 $result = mysqli_query($connection, $sql);
-$books = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$students = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
 <!doctype html>
@@ -26,47 +26,51 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Buku</a>
-                        <a class="nav-link" href="siswa.php">Siswa</a>
+                        <a class="nav-link " aria-current="page" href="buku.php">Buku</a>
+                        <a class="nav-link active" href="siswa.php">Siswa</a>
                         <a class="nav-link" href="peminjaman.php">Peminjaman</a>
                     </div>
                 </div>
             </div>
         </nav>
         <div class="container">
-            <h1 class="text-primary">Buku</h1>
-            <a href="tambah_buku.php" class="btn btn-primary text-white">Tambah buku</a>
+            <h1 class="text-primary">Siswa</h1>
+            <a href="tambah_siswa.php" class="btn btn-primary text-white">Tambah siswa</a>
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Judul Buku</th>
-                        <th scope="col">Penerbit</th>
-                        <th scope="col">Tahun terbit</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Kelas</th>
+                        <th scope="col">Telepon</th>
+                        <th scope="col">NISN</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    <?php foreach ($books as $key => $book) { ?>
+                    <?php foreach ($students as $key => $student) { ?>
                         <tr>
                             <th scope="row">
-                                <?php echo $book['id'] ?>
+                                <?php echo $student['id'] ?>
                             </th>
                             <td>
-                                <?php echo $book['judul']; ?>
+                                <?php echo $student['nama']; ?>
                             </td>
                             <td>
-                                <?php echo $book['penerbit'] ?>
+                                <?php echo $student['kelas'] ?>
                             </td>
                             <td>
-                                <?php echo $book['tahun_terbit'] ?>
+                                <?php echo $student['telepon'] ?>
+                            </td>
+                            <td>
+                                <?php echo $student['nisn'] ?>
                             </td>
                             <td class="d-flex gap-2">
-                                <a href="edit_buku.php?id=<?php echo $book['id'] ?>"
+                                <a href="edit_siswa.php?id=<?php echo $student['id'] ?>"
                                     class="btn btn-info text-white">Edit</a>
-                                <form action="proccess/hapus_buku.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $book['id'] ?>">
+                                <form action="proccess/hapus_siswa.php" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $student['id'] ?>">
                                     <button type="submit" class="btn btn-danger text-white">Delete</button>
                                 </form>
                             </td>

@@ -1,9 +1,9 @@
 <?php
 include 'config.php';
 $id = $_GET['id'];
-$sql = "SELECT * FROM `buku` WHERE id = $id";
+$sql = "SELECT * FROM `siswa` WHERE id = $id";
 $result = mysqli_query($connection, $sql);
-$book = mysqli_fetch_assoc($result);
+$student = mysqli_fetch_assoc($result);
 ?>
 
 <!doctype html>
@@ -12,14 +12,14 @@ $book = mysqli_fetch_assoc($result);
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Edit Buku </title>
+        <title>Edit Siswa </title>
         <link href="./css/bootstrap.min.css" rel="stylesheet">
     </head>
 
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Perpustakaan Ilham Malana</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -38,25 +38,30 @@ $book = mysqli_fetch_assoc($result);
 
 
         <div class="container">
-            <h1 class="text-primary">Edit buku</h1>
-            <a href="buku.php" class="btn btn-primary text-white mb-3">Lihat buku</a>
+            <h1 class="text-primary">Edit siswa</h1>
+            <a href="siswa.php" class="btn btn-primary text-white mb-3">Lihat siswa</a>
 
-            <form method="POST" action="proccess/edit_buku.php">
-                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $book['id'] ?>">
+            <form method="POST" action="proccess/edit_siswa.php">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $student['id'] ?>">
                 <div class="mb-3">
-                    <label for="judul" class="form-label">Judul :</label>
-                    <input type="text" class="form-control" id="judul" name="judul"
-                        value="<?php echo $book['judul'] ?>">
+                    <label for="nama" class="form-label">Nama :</label>
+                    <input type="text" class="form-control" id="nama" name="nama"
+                        value="<?php echo $student['nama'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="penerbit" class="form-label">Penerbit :</label>
-                    <input type="text" class="form-control" id="penerbit" name="penerbit"
-                        value="<?php echo $book['penerbit'] ?>">
+                    <label for="kelas" class="form-label">Kelas :</label>
+                    <input type="text" class="form-control" id="kelas" name="kelas"
+                        value="<?php echo $student['kelas'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="tahun_terbit" class="form-label">Tahun terbit :</label>
-                    <input type="text" class="form-control" id="tahun_terbit"
-                        value="<?php echo $book['tahun_terbit'] ?>" name="tahun_terbit">
+                    <label for="telepon" class="form-label">Telepon :</label>
+                    <input type="text" class="form-control" id="telepon" value="<?php echo $student['telepon'] ?>"
+                        name="telepon">
+                </div>
+                <div class="mb-3">
+                    <label for="nisn" class="form-label">NISN :</label>
+                    <input type="text" class="form-control" id="nisn" value="<?php echo $student['nisn'] ?>"
+                        name="nisn">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
