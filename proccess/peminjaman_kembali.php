@@ -3,9 +3,10 @@ include '../config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
-    $sql = "DELETE FROM buku WHERE id = $id";
+    $sql = "UPDATE`peminjaman` SET `status` = 'sudah_selesai',
+    `tgl_kembali`  = NOW() WHERE id = $id";
     if (mysqli_query($connection, $sql)) {
-        header('Location: ../buku.php');
+        header('Location: ../peminjaman.php');
     } else {
         echo mysqli_error($connection);
     }

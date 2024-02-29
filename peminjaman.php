@@ -69,16 +69,20 @@ $borrowing = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <td>
                                 <?php echo $borrow['tgl_pinjam'] ?>
                             </td>
-                            <td>x
+                            <td>
                                 <?php echo $borrow['tgl_kembali'] ?>
                             </td>
                             <td>
                                 <?php echo $borrow['status'] ?>
                             </td>
                             <td class="d-flex gap-2">
-                                <a href="edit_siswa.php?id=<?php echo $borrow['id'] ?>"
+                                <a href="edit_peminjaman.php?id=<?php echo $borrow['id'] ?>"
                                     class="btn btn-info text-white">Edit</a>
-                                <form action="proccess/hapus_siswa.php" method="POST">
+                                <form action="proccess/peminjaman_kembali.php" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $borrow['id'] ?>">
+                                    <button type="submit" class="btn btn-success text-white">Kembali</button>
+                                </form>
+                                <form action="proccess/hapus_peminjaman.php" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $borrow['id'] ?>">
                                     <button type="submit" class="btn btn-danger text-white">Delete</button>
                                 </form>
