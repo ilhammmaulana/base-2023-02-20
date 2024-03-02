@@ -1,5 +1,7 @@
 <?php
 include 'config.php';
+
+$connection = Config::getConnection();
 $id = $_GET['id'];
 $sql = "SELECT * FROM `buku` WHERE id = $id";
 $result = mysqli_query($connection, $sql);

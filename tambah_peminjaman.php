@@ -1,5 +1,8 @@
 <?php
 include 'config.php';
+
+$connection = Config::getConnection();
+
 $sqlBook = "SELECT * FROM `buku`";
 $sqlStudent = "SELECT * FROM `siswa`";
 

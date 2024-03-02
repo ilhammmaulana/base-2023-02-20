@@ -1,5 +1,7 @@
 <?php
 include 'config.php';
+$connection = Config::getConnection();
+
 $sql = "SELECT * FROM `siswa`";
 $result = mysqli_query($connection, $sql);
 $students = mysqli_fetch_all($result, MYSQLI_ASSOC);

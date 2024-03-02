@@ -1,9 +1,10 @@
 <?php
 include '../config.php';
+$connection = Config::getConnection();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
-    $judul = $_POST['judul'];   
+    $judul = $_POST['judul'];
     $penerbit = $_POST['penerbit'];
     $tahun_terbit = $_POST['tahun_terbit'];
 

@@ -1,5 +1,8 @@
 <?php
 include 'config.php';
+$connection = Config::getConnection();
+
+
 $sql = "SELECT peminjaman.id, peminjaman.tgl_pinjam,
 peminjaman.tgl_kembali, peminjaman.status, 
 siswa.nama as nama_siswa,siswa.kelas as kelas_siswa, 

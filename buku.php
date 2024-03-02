@@ -1,5 +1,7 @@
 <?php
 include 'config.php';
+$connection = Config::getConnection();
+
 $sql = "SELECT * FROM `buku`";
 $result = mysqli_query($connection, $sql);
 $books = mysqli_fetch_all($result, MYSQLI_ASSOC);

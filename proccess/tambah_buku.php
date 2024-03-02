@@ -1,5 +1,6 @@
 <?php
 include '../config.php';
+$connection = Config::getConnection();
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
